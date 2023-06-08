@@ -9,11 +9,13 @@ import LogIn from "./User/LogIn.jsx";
 import SignUp from "./User/SignUp.jsx";
 import Providers from "./AuthProviders/Providers.jsx";
 import "sweetalert2/dist/sweetalert2.css";
+import ErrorPage from "./SharedPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
