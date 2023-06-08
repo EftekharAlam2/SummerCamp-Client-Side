@@ -101,7 +101,7 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="btn btn-primary w-full py-2 px-4 rounded-lg text-white font-bold"
+            className="btn btn-outline btn-accent w-full py-2 px-4 rounded-lg text-white font-bold"
           >
             Log In
           </button>

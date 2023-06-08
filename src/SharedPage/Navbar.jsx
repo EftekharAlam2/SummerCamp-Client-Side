@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from "/logo.png";
-// import { useContext, useState } from "react";
-// import { Context } from "../AuthProviders/Providers";
+import { useContext, useState } from "react";
+import { Context } from "../AuthProviders/Providers";
 
 const Navbar = () => {
-  // const { user, logOut } = useContext(Context);
+  const { user, logOut } = useContext(Context);
 
-  // const [showName, setShowName] = useState(false);
+  const [showName, setShowName] = useState(false);
 
   const navItems = (
     <>
@@ -27,11 +27,13 @@ const Navbar = () => {
           Classes
         </Link>
       </li>
-      <li>
-        <Link to="/dashboard" className="nav-link text-white">
-          Dashboard
-        </Link>
-      </li>
+      {user && (
+        <li>
+          <Link to="/dashboard" className="nav-link text-white">
+            Dashboard
+          </Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -68,7 +70,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end flex items-center">
-        {/* <div
+        <div
           className="pr-4 relative"
           onMouseEnter={() => setShowName(true)}
           onMouseLeave={() => setShowName(false)}
@@ -85,19 +87,19 @@ const Navbar = () => {
               {user.displayName}
             </div>
           )}
-        </div> */}
+        </div>
         <div>
-          {/* {user ? (
+          {user ? (
             <div>
-              <button className="btn btn-outline btn-warning" onClick={logOut}>
+              <button className="btn btn-outline btn-accent" onClick={logOut}>
                 Logout
               </button>
             </div>
-          ) : ( */}
-          <Link to="/login">
-            <button className="btn btn-outline btn-accent">Login</button>
-          </Link>
-          {/* )} */}
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-outline btn-accent">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

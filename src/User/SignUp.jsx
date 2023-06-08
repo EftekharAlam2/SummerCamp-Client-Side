@@ -19,9 +19,42 @@ const SignUp = () => {
     const name = event.target.name.value;
     const photo = event.target.photo.value;
 
+    const confirmPassword = event.target.confirmPassword.value;
+    if (password !== confirmPassword) {
+      Swal.fire({
+        title: "Passwords do not match",
+        text: "Please make sure the passwords match",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     if (password.length < 6) {
       Swal.fire({
         title: "Please add at least 6 characters in the password!",
+        text: "Do you want to continue?",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    const capitalLetter = /(?=.*[A-Z])/;
+    if (!capitalLetter.test(password)) {
+      Swal.fire({
+        title: "Password should contain at least one capital letter",
+        text: "Do you want to continue?",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
+    const specialCharacter = /(?=.*[!@#$&*])/;
+    if (!specialCharacter.test(password)) {
+      Swal.fire({
+        title: "Password should contain at least one special character",
         text: "Do you want to continue?",
         icon: "error",
         confirmButtonText: "OK",
@@ -94,6 +127,21 @@ const SignUp = () => {
             />
           </div>
           <div className="mb-4">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-gray-700 mb-2"
+            >
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              className="w-full rounded-lg py-2 px-4 border border-gray-300 focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
+          <div className="mb-4">
             <label htmlFor="photoURL" className="block text-gray-700 mb-2">
               Photo URL
             </label>
@@ -107,7 +155,7 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="btn btn-primary text-white font-bold py-2 px-4 rounded-lg w-full"
+            className="btn btn-outline btn-accent text-white font-bold py-2 px-4 rounded-lg w-full"
           >
             Register
           </button>
