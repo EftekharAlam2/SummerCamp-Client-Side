@@ -4,9 +4,9 @@ import { useContext, useState } from "react";
 // import { Context } from "../AuthProviders/Providers";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(Context);
+  // const { user, logOut } = useContext(Context);
 
-  const [showName, setShowName] = useState(false);
+  // const [showName, setShowName] = useState(false);
 
   const navItems = (
     <>
@@ -17,28 +17,19 @@ const Navbar = () => {
       </li>
 
       <li>
-        <Link to="/alltoys" className="nav-link">
-          All Toys
+        <Link to="/instructors" className="nav-link">
+          Instructors
         </Link>
       </li>
 
-      {user && (
-        <li>
-          <Link to="/mytoys" className="nav-link">
-            My Toys
-          </Link>
-        </li>
-      )}
-      {user && (
-        <li>
-          <Link to="/addtoy" className="nav-link">
-            Add A Toy
-          </Link>
-        </li>
-      )}
       <li>
-        <Link to="/blogs" className="nav-link">
-          Blogs
+        <Link to="/classes" className="nav-link">
+          Classes
+        </Link>
+      </li>
+      <li>
+        <Link to="/dashboard" className="nav-link">
+          Dashboard
         </Link>
       </li>
     </>
@@ -72,14 +63,14 @@ const Navbar = () => {
         </div>
         <img src={logo} alt="Website Logo" className="h-12 w-auto ml-4" />
         <a className="btn btn-ghost text-white text-xl font-bold pb-1 ml-2">
-          GameToys
+          SportCamp
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end flex items-center">
-        <div
+        {/* <div
           className="pr-4 relative"
           onMouseEnter={() => setShowName(true)}
           onMouseLeave={() => setShowName(false)}
@@ -96,19 +87,19 @@ const Navbar = () => {
               {user.displayName}
             </div>
           )}
-        </div>
+        </div> */}
         <div>
-          {user ? (
+          {/* {user ? (
             <div>
               <button className="btn btn-outline btn-warning" onClick={logOut}>
                 Logout
               </button>
             </div>
-          ) : (
-            <Link to="/login">
-              <button className="btn btn-outline btn-warning">Login</button>
-            </Link>
-          )}
+          ) : ( */}
+          <Link to="/login">
+            <button className="btn btn-outline btn-accent">Login</button>
+          </Link>
+          {/* )} */}
         </div>
       </div>
     </nav>
