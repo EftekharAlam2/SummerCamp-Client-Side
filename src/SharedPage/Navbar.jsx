@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "/logo.png";
-import { useContext, useState } from "react";
+// import { useContext, useState } from "react";
 // import { Context } from "../AuthProviders/Providers";
 
 const Navbar = () => {
@@ -11,24 +11,24 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-link text-white">
           Home
         </Link>
       </li>
 
       <li>
-        <Link to="/instructors" className="nav-link">
+        <Link to="/instructors" className="nav-link text-white">
           Instructors
         </Link>
       </li>
 
       <li>
-        <Link to="/classes" className="nav-link">
+        <Link to="/classes" className="nav-link text-white">
           Classes
         </Link>
       </li>
       <li>
-        <Link to="/dashboard" className="nav-link">
+        <Link to="/dashboard" className="nav-link text-white">
           Dashboard
         </Link>
       </li>
@@ -62,9 +62,7 @@ const Navbar = () => {
           </ul>
         </div>
         <img src={logo} alt="Website Logo" className="h-12 w-auto ml-4" />
-        <a className="btn btn-ghost text-white text-xl font-bold pb-1 ml-2">
-          SportCamp
-        </a>
+        <h3 className="text-white text-lg font-bold ml-2">SportCamp</h3>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
