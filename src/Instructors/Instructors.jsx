@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
   const [data, setData] = useState([]);
@@ -15,6 +16,9 @@ const Instructors = () => {
 
   return (
     <div className="instructors-section mb-5">
+      <Helmet>
+        <title>SportCamp | Instructors</title>
+      </Helmet>
       <h2 className="text-4xl font-bold mb-4 my-8 text-center">Instructors</h2>
       <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.map((instructor) => (

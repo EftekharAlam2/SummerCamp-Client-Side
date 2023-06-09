@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const Classes = () => {
@@ -16,6 +17,9 @@ const Classes = () => {
 
   return (
     <div className="classes-section mb-5">
+      <Helmet>
+        <title>SportCamp | Classes</title>
+      </Helmet>
       <h2 className="text-4xl font-bold mb-4 my-8 text-center">Classes</h2>
       <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.map((classData) => (

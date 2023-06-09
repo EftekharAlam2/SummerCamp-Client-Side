@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const Dashboard = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Helmet>
+        <title>SportCamp | Dashboard</title>
+      </Helmet>
     </div>
   );
 };

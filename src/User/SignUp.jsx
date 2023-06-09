@@ -66,7 +66,21 @@ const SignUp = () => {
       .then((result) => {
         const registeredUser = result.user;
         updateUser(registeredUser, name, photo)
-          .then(() => {})
+          .then(() => {
+            const saveUser = {
+              name,
+              email,
+            };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(saveUser),
+            })
+              .then((res) => res.json())
+              .then(() => {});
+          })
           .catch((error) => {
             console.log(error.message);
           });
