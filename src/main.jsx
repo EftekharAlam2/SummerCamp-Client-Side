@@ -11,6 +11,9 @@ import Providers from "./AuthProviders/Providers.jsx";
 import "sweetalert2/dist/sweetalert2.css";
 import ErrorPage from "./SharedPage/ErrorPage.jsx";
 import Instructors from "./Instructors/Instructors.jsx";
+import Classes from "./Classes/Classes.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
+import Dashboard from "./Dashboard/Dashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,18 @@ const router = createBrowserRouter([
       {
         path: "/instructors",
         element: <Instructors></Instructors>,
+      },
+      {
+        path: "/classes",
+        element: <Classes></Classes>,
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
       },
     ],
   },

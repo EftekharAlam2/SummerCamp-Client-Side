@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Classes = () => {
   const [data, setData] = useState([]);
@@ -14,7 +15,7 @@ const Classes = () => {
   }, []);
 
   return (
-    <div className="classes-section">
+    <div className="classes-section mb-5">
       <h2 className="text-4xl font-bold mb-4 my-8 text-center">Classes</h2>
       <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.map((classData) => (
@@ -40,15 +41,16 @@ const Classes = () => {
               <p className="price text-gray-700 mb-2">
                 Price: {classData.price}
               </p>
+
               <button
-                className={`enroll-btn py-2 px-4 ${
+                className={`enroll-btn py-2 px-4 rounded-md ${
                   classData.availableSeats === 0
-                    ? "bg-red-500 cursor-not-allowed"
-                    : "bg-blue-500"
+                    ? "btn btn-outline btn-error cursor-not-allowed"
+                    : "btn btn-outline btn-accent"
                 }`}
                 disabled={classData.availableSeats === 0}
               >
-                Enroll
+                <Link to="/dashboard">Enroll</Link>
               </button>
             </div>
           </div>
