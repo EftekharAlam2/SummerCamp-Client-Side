@@ -10,6 +10,7 @@ import SignUp from "./User/SignUp.jsx";
 import Providers from "./AuthProviders/Providers.jsx";
 import "sweetalert2/dist/sweetalert2.css";
 import ErrorPage from "./SharedPage/ErrorPage.jsx";
+import Instructors from "./Instructors/Instructors.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/instructors",
+        element: <Instructors></Instructors>,
       },
     ],
   },
