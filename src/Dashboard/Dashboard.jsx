@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import AllUsers from "./AllUsers";
 
 const Dashboard = () => {
   return (
@@ -6,6 +7,7 @@ const Dashboard = () => {
       <Helmet>
         <title>SportCamp | Dashboard</title>
       </Helmet>
+      <AllUsers></AllUsers>
     </div>
   );
 };
