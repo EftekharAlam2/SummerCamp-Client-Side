@@ -12,8 +12,8 @@ import "sweetalert2/dist/sweetalert2.css";
 import ErrorPage from "./SharedPage/ErrorPage.jsx";
 import Instructors from "./Instructors/Instructors.jsx";
 import Classes from "./Classes/Classes.jsx";
-import PrivateRoute from "./Routes/PrivateRoute.jsx";
-import Dashboard from "./Dashboard/Dashboard.jsx";
+import AdminRoute from "./Routes/AdminRoute.jsx";
+import AllUsers from "./Dashboard/AllUsers.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,9 +44,9 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: (
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
         ),
       },
     ],

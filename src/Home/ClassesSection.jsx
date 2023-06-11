@@ -5,9 +5,12 @@ const ClassesSection = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/classes", {
-      method: "GET",
-    })
+    fetch(
+      "https://b7a12-summer-camp-server-side-eftekhar-alam2.vercel.app/classes",
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         //After descending on order of students, the first 6 data is selected

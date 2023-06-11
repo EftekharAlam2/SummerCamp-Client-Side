@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "sportcamp-838ea"
-  }
+    "default": "practice-all-39805",
+    "firebase use project-alias": "practice-all-39805"
+  },
+  "targets": {},
+  "etags": {}
 }

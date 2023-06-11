@@ -7,9 +7,12 @@ const AllUsers = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/classes", {
-      method: "GET",
-    })
+    fetch(
+      "https://b7a12-summer-camp-server-side-eftekhar-alam2.vercel.app/classes",
+      {
+        method: "GET",
+      }
+    )
       .then((res) => res.json())
       .then((data1) => {
         setData(data1);
@@ -30,13 +33,16 @@ const AllUsers = () => {
 
   const handleMakeRole = (user, role) => {
     console.log(role);
-    fetch(`http://localhost:5000/classes/role/${user._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ role }),
-    })
+    fetch(
+      `https://b7a12-summer-camp-server-side-eftekhar-alam2.vercel.app/classes/role/${user._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ role }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -98,7 +104,6 @@ const AllUsers = () => {
                       onClick={() => handleMakeRole(item, "admin")}
                       className="btn btn-accent me-2"
                     >
-                      {/* <FaUserEdit />  */}
                       Make Admin
                     </button>
                   )}
@@ -109,7 +114,6 @@ const AllUsers = () => {
                       onClick={() => handleMakeRole(item, "instructor")}
                       className="btn btn-accent me-2"
                     >
-                      {/* <FaUserCheck /> */}
                       Make Instructor
                     </button>
                   )}

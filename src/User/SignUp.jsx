@@ -73,13 +73,16 @@ const SignUp = () => {
               instructor,
               email,
             };
-            fetch("http://localhost:5000/classes", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(saveUser),
-            })
+            fetch(
+              "https://b7a12-summer-camp-server-side-eftekhar-alam2.vercel.app/classes",
+              {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify(saveUser),
+              }
+            )
               .then((res) => res.json())
               .then(() => {});
           })
