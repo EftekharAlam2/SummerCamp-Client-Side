@@ -18,6 +18,7 @@ const SignUp = () => {
     const password = event.target.password.value;
     const name = event.target.name.value;
     const photo = event.target.photo.value;
+    const instructor = event.target.name.value;
 
     const confirmPassword = event.target.confirmPassword.value;
     if (password !== confirmPassword) {
@@ -68,10 +69,10 @@ const SignUp = () => {
         updateUser(registeredUser, name, photo)
           .then(() => {
             const saveUser = {
-              name,
+              instructor,
               email,
             };
-            fetch("http://localhost:5000/users", {
+            fetch("http://localhost:5000/classes", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

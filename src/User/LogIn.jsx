@@ -46,8 +46,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        const saveUser = { name: user.displayName, email: user.email };
-        fetch("http://localhost:5000/users", {
+        const saveUser = { instructor: user.displayName, email: user.email };
+        fetch("http://localhost:5000/classes", {
           method: "POST",
           headers: {
             "content-type": "application/json",

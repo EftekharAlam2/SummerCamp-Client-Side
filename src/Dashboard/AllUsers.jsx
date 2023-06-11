@@ -29,27 +29,24 @@ const AllUsers = () => {
     setData(updatedData);
   };
 
-  const handleMakeInstructor = () => {
-    // Add logic to handle making the user at the given index an instructor
-    // Disable the button after it's clicked
-  };
-
-  const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+  const handleMakeRole = (user, role) => {
+    console.log(role);
+    fetch(`http://localhost:5000/classes/role/${user._id}`, {
       method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ role }),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.modifiedCount) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${user.name} is an Admin Now!`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
+        Swal.fire({
+          icon: "success",
+          title: "Role Enabled Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
 
@@ -94,20 +91,28 @@ const AllUsers = () => {
                 >
                   Deny
                 </button>
-                <button
-                  onClick={() => handleMakeInstructor(index)}
-                  // disabled={/* Logic to check if user is already an instructor */}
-                  className="btn btn-accent me-2"
-                >
-                  Make Instructor
-                </button>
-                <button
-                  onClick={() => handleMakeAdmin(item)}
-                  // disabled={/* Logic to check if user is already an admin */}
-                  className="btn btn-accent me-2"
-                >
-                  Make Admin
-                </button>
+                {item.role === "admin" ? (
+                  "Admin"
+                ) : (
+                  <button
+                    onClick={() => handleMakeRole(item, "admin")}
+                    className="btn btn-accent me-2"
+                  >
+                    {/* <FaUserEdit />  */}
+                    Make Admin
+                  </button>
+                )}
+                {item.role === "instructor" ? (
+                  "Instructor"
+                ) : (
+                  <button
+                    onClick={() => handleMakeRole(item, "instructor")}
+                    className="btn btn-accent me-2"
+                  >
+                    {/* <FaUserCheck /> */}
+                    Make Instructor
+                  </button>
+                )}
               </div>
             </div>
           ))}
