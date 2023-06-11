@@ -1,4 +1,4 @@
-## [GameToys (Click)](https://practice-all-39805.web.app/)
+## [SportCamp (Click)](https://practice-all-39805.web.app/)
 
 ## Features
 
@@ -19,4 +19,4 @@
 
 9. **Technology: Tailwind, Firebase, MongoDB, React.js**
 
-## Because of my semester final exam, I only done with the admin panel right now. After my final exam is complete, the instrucotr and user panel will also come.
+## Because of my semester final exam, I only done with the admin panel right now. After my final exam is complete, the instrucotr and user panel will also will be done Ing Sha Allah.
