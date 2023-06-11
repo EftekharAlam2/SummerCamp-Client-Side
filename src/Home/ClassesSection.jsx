@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Zoom } from "react-awesome-reveal";
 
 const ClassesSection = () => {
   const [data, setData] = useState([]);
@@ -19,31 +20,33 @@ const ClassesSection = () => {
       <h2 className="text-4xl font-bold mb-4 my-8 text-center">
         Popular Classes
       </h2>
-      <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
-        {data.map((classData) => (
-          <div
-            key={classData._id}
-            className="class-card bg-white rounded-lg shadow-md"
-          >
-            <img
-              src={classData.image}
-              alt={classData.name}
-              className="class-image w-full rounded-t-lg"
-            />
-            <div className="class-details p-4">
-              <h3 className="class-name text-xl font-bold mb-2">
-                {classData.name}
-              </h3>
-              <p className="instructor-name text-gray-700 mb-2">
-                Instructor: {classData.instructor}
-              </p>
-              <p className="student-count text-gray-700">
-                Students: {classData.students}
-              </p>
+      <Zoom>
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+          {data.map((classData) => (
+            <div
+              key={classData._id}
+              className="class-card bg-white rounded-lg shadow-md"
+            >
+              <img
+                src={classData.image}
+                alt={classData.name}
+                className="class-image w-full rounded-t-lg"
+              />
+              <div className="class-details p-4">
+                <h3 className="class-name text-xl font-bold mb-2">
+                  {classData.name}
+                </h3>
+                <p className="instructor-name text-gray-700 mb-2">
+                  Instructor: {classData.instructor}
+                </p>
+                <p className="student-count text-gray-700">
+                  Students: {classData.students}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </Zoom>
     </div>
   );
 };
